@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Upload File{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Upload File</h2>
+<form method="POST" enctype="multipart/form-data" class="max-w-md">
+    <div class="mb-4">
+        <label for="file" class="block text-sm font-medium text-gray-700">Select File</label>
+        <input type="file" name="file" id="file" required class="mt-1 p-2 w-full border rounded">
+    </div>
+    <div class="mb-4">
+        <label for="share_count" class="block text-sm font-medium text-gray-700">Number of Chunks</label>
+        <input type="number" name="share_count" id="share_count" min="1" required class="mt-1 p-2 w-full border rounded">
+    </div>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Upload</button>
+</form>
+{% endblock %}

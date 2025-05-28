@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>🔍 Get File Hash</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Select File</label>
+        <input type="file" name="file" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-secondary">Get Hash</button>
+</form>
+
+{% if file_hash %}
+    <div class="alert alert-info mt-3">File Hash: <strong>{{ file_hash }}</strong></div>
+{% endif %}
+{% endblock %}

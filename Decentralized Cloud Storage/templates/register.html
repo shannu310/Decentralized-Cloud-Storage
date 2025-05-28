@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Register</h2>
+<form method="POST" class="max-w-md">
+    <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" name="username" id="username" required class="mt-1 p-2 w-full border rounded">
+    </div>
+    <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" name="password" id="password" required class="mt-1 p-2 w-full border rounded">
+    </div>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Register</button>
+</form>
+<p class="mt-4">Already have an account? <a href="{{ url_for('login') }}" class="text-blue-600 hover:underline">Login</a></p>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}View Servers{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Available Servers</h2>
+{% if servers %}
+<table class="w-full border-collapse border">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border p-2">Server Address</th>
+            <th class="border p-2">Capacity (Chunks)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for server, capacity in servers %}
+        <tr>
+            <td class="border p-2">{{ server }}</td>
+            <td class="border p-2">{{ capacity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No servers available.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Get File Hash{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Get File Hash</h2>
+<form method="POST" enctype="multipart/form-data" class="max-w-md">
+    <div class="mb-4">
+        <label for="file" class="block text-sm font-medium text-gray-700">Select File</label>
+        <input type="file" name="file" id="file" required class="mt-1 p-2 w-full border rounded">
+    </div>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Get Hash</button>
+</form>
+{% endblock %}

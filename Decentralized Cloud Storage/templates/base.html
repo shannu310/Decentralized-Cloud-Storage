@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Decentralized Storage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Decentralized Storage</h1>
+            {% if session.authenticated %}
+            <nav>
+                <a href="{{ url_for('home') }}" class="px-4 hover:underline">Home</a>
+                <a href="{{ url_for('upload') }}" class="px-4 hover:underline">Upload</a>
+                <a href="{{ url_for('view_files') }}" class="px-4 hover:underline">View Files</a>
+                <a href="{{ url_for('delete_file') }}" class="px-4 hover:underline">Delete File</a>
+                <a href="{{ url_for('view_servers') }}" class="px-4 hover:underline">Servers</a>
+                <a href="{{ url_for('download_file') }}" class="px-4 hover:underline">Download</a>
+                <a href="{{ url_for('get_hash_route') }}" class="px-4 hover:underline">Get Hash</a>
+                <a href="{{ url_for('logout') }}" class="px-4 hover:underline">Logout</a>
+            </nav>
+            {% endif %}
+        </div>
+    </header>
+    <main class="container mx-auto p-6">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="mb-4">
+            {% for category, message in messages %}
+            <div class="p-4 rounded {% if category == 'error' %}bg-red-100 text-red-700{% elif category == 'success' %}bg-green-100 text-green-700{% elif category == 'warning' %}bg-yellow-100 text-yellow-700{% endif %}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2025 Decentralized Storage. All rights reserved.</p>
+    </footer>
+</body>
+</html>

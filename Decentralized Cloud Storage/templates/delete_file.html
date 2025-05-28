@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Delete File{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Delete File</h2>
+<form method="POST" class="max-w-md">
+    <div class="mb-4">
+        <label for="content_hash" class="block text-sm font-medium text-gray-700">File Hash</label>
+        <input type="text" name="content_hash" id="content_hash" required class="mt-1 p-2 w-full border rounded">
+    </div>
+    <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+</form>
+{% endblock %}

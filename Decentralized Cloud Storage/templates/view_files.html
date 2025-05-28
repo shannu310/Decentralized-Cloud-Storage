@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}View Files{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Your Files</h2>
+{% if files %}
+<table class="w-full border-collapse border">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border p-2">File Name</th>
+            <th class="border p-2">Content Hash</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for hash, name in files %}
+        <tr>
+            <td class="border p-2">{{ name }}</td>
+            <td class="border p-2">{{ hash }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No files found.</p>
+{% endif %}
+{% endblock %}
